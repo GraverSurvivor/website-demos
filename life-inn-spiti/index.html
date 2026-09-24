@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!--
+  Website concept for Life Inn Spiti, a family homestay in Kaza, Spiti Valley.
+  Built as a pitch. Confirm every detail with the owners and get their permission before it goes live.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Inn Spiti · Family Homestay in Kaza</title>
+<meta name="description" content="A warm family homestay in Kaza, Spiti Valley. Double, triple and family rooms with private bathrooms, a terrace, garden, Wi-Fi and parking. Book directly with the family.">
+<meta name="theme-color" content="#16202e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{
+  --snow:#f5f2ec;
+  --snow-2:#ebe5da;
+  --ink:#16202e;
+  --ink-2:#4b5566;
+  --sky:#2f5fb3;
+  --ochre:#c7873f;
+  --ochre-2:#e2a562;
+  --line:rgba(22,32,46,.12);
+  --f-blue:#2d6cdf;--f-white:#f4f4f4;--f-red:#d8413a;--f-green:#2e9e5b;--f-yellow:#f2c230;
+  --ease:cubic-bezier(.22,.9,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--snow);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.syne{font-family:"Syne",sans-serif}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:60;transition:background .4s,color .4s,box-shadow .4s;color:#fff}
+.nav.solid{background:rgba(245,242,236,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Syne",sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em}
+.logo svg{width:34px;height:34px}
+.nav nav{display:flex;gap:30px;font-weight:500;font-size:15px}
+.nav nav a{opacity:.85}.nav nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:14px;font-weight:600;font-size:15px;transition:transform .3s var(--ease),background .3s,box-shadow .3s;border:0;cursor:pointer;font-family:inherit}
+.btn-o{background:var(--ochre);color:#fff;box-shadow:0 12px 30px -12px rgba(199,135,63,.8)}
+.btn-o:hover{background:#b3742f;transform:translateY(-2px)}
+.btn-w{background:#fff;color:var(--ink)}
+.btn-w:hover{transform:translateY(-2px)}
+.btn-line{border:1.5px solid currentColor;background:transparent}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;cursor:pointer}
+@media (max-width:900px){
+  .nav nav,.nav .btn{display:none}.burger{display:grid;place-items:center}
+  .nav.open{background:var(--snow);color:var(--ink)}
+  .nav.open nav{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:var(--snow);padding:6px 16px 20px;gap:0;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  .nav.open nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:18px}
+}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:680px;overflow:hidden;color:#fff;isolation:isolate}
+.sky{position:absolute;inset:0;z-index:-3;transition:background 1.5s}
+.stars{position:absolute;inset:0;width:100%;height:100%;z-index:-2;transition:opacity 1.5s}
+.sun{position:absolute;z-index:-2;width:120px;height:120px;border-radius:50%;transition:all 1.5s var(--ease)}
+.ridges{position:absolute;left:0;right:0;bottom:0;height:78%;z-index:-1}
+.ridges svg{position:absolute;left:-5%;width:110%;bottom:0;will-change:transform}
+.flags{position:absolute;top:92px;left:0;width:100%;height:120px;z-index:1;pointer-events:none}
+.flag{transform-box:fill-box;transform-origin:top center;animation:flutter 2.6s ease-in-out infinite}
+@keyframes flutter{0%,100%{transform:skewX(0) scaleY(1)}30%{transform:skewX(8deg) scaleY(.96)}60%{transform:skewX(-5deg) scaleY(1.02)}}
+.hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
+.alt{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}
+.hero h1{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(40px,8.5vw,138px);line-height:.9;letter-spacing:-.035em;margin:22px 0 22px;max-width:11ch;text-shadow:0 10px 40px rgba(0,0,0,.25)}
+.hero h1 span{display:inline-block;background:linear-gradient(90deg,#ffd8a8,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:520px;font-size:clamp(16px,1.5vw,19px);opacity:.92;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.clock{position:absolute;right:max(16px,calc((100vw - 1240px)/2));top:236px;text-align:right;font-size:13px;z-index:2}
+.clock b{display:block;font-family:"Syne",sans-serif;font-size:30px;letter-spacing:-.02em}
+.clock .modes{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+.clock .modes button{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 10px;font:inherit;font-size:12px;cursor:pointer;backdrop-filter:blur(6px)}
+.clock .modes button.on{background:#fff;color:var(--ink)}
+@media (max-width:1100px){.clock{top:88px;right:16px;display:flex;align-items:center;gap:8px;background:rgba(10,15,30,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);font-size:12px}.clock b{font-size:16px;display:inline;letter-spacing:0}.clock .modes{display:none}}
+@media (max-width:700px){.flags{top:80px}}
+
+/* booking bar */
+.book{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);width:min(1000px,100% - 32px);background:#fff;color:var(--ink);border-radius:22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.45);display:grid;grid-template-columns:1fr 1fr 1fr 1.1fr auto;align-items:stretch;overflow:hidden;z-index:3}
+.book label{display:flex;flex-direction:column;justify-content:center;padding:16px 20px;border-right:1px solid var(--line);cursor:pointer}
+.book label span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+.book input,.book select{min-width:0;border:0;outline:0;font:inherit;font-weight:600;font-size:16px;background:none;color:var(--ink);padding:4px 0 0;width:100%}
+.book .btn{border-radius:0;padding:0 28px;justify-content:center}
+@media (max-width:900px){.book{grid-template-columns:minmax(0,1fr) minmax(0,1fr);bottom:16px}.book label:nth-child(2){border-right:0}.book label{border-bottom:1px solid var(--line);padding:12px 16px}.book .btn{grid-column:span 2;padding:16px}}
+
+/* sections */
+.sec{padding:clamp(90px,11vw,150px) 0;position:relative}
+.eyebrow{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);font-weight:700}
+.h2{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(32px,5.8vw,86px);line-height:.95;letter-spacing:-.035em;margin-top:14px}
+.h2 span{color:var(--ochre)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
+.head p{max-width:440px;color:var(--ink-2)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* intro */
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.intro-grid p.big{font-size:clamp(22px,2.3vw,32px);line-height:1.35;letter-spacing:-.01em;font-weight:500}
+.intro-grid p.big em{font-style:normal;color:var(--ochre)}
+.rate{display:flex;align-items:center;gap:18px;padding:22px 26px;background:#fff;border-radius:20px;box-shadow:0 20px 50px -30px rgba(0,0,0,.35);margin-top:34px;max-width:440px}
+.rate b{font-family:"Syne",sans-serif;font-size:48px;line-height:1;letter-spacing:-.03em}
+.rate .s{color:var(--ochre);letter-spacing:2px}
+.rate small{color:var(--ink-2);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.fact{padding:18px}.fact b{font-size:28px}}
+.fact{background:#fff;border-radius:20px;padding:24px;box-shadow:0 20px 50px -34px rgba(0,0,0,.4);transition:transform .4s var(--ease)}
+.fact:hover{transform:translateY(-6px)}
+.fact b{font-family:"Syne",sans-serif;font-size:40px;line-height:1;letter-spacing:-.03em;display:block}
+.fact span{font-size:14px;color:var(--ink-2)}
+.fact.dark{background:var(--ink);color:#fff}.fact.dark span{color:#b9c2d0}
+.fact.och{background:var(--ochre);color:#fff}.fact.och span{color:#fbe8d2}
+@media (max-width:900px){.intro-grid{grid-template-columns:minmax(0,1fr);gap:40px}}
+
+/* rooms */
+.rooms{background:var(--ink);color:#fff}
+.rooms .head p{color:#b9c2d0}
+.room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.room{background:#1f2b3d;border-radius:24px;overflow:hidden;transition:transform .5s var(--ease)}
+.room:hover{transform:translateY(-8px)}
+.room .pic{height:230px;position:relative;overflow:hidden}
+.room .pic svg{width:100%;height:100%}
+.room .body{padding:24px 26px 28px}
+.room h3{font-family:"Syne",sans-serif;font-size:28px;letter-spacing:-.02em;line-height:1.1}
+.room .sl{color:var(--ochre-2);font-weight:600;font-size:14px;margin:6px 0 12px}
+.room p{color:#b9c2d0;font-size:15px}
+.room a{display:inline-flex;margin-top:18px;font-weight:600;color:#fff;gap:8px;border-bottom:1.5px solid var(--ochre);padding-bottom:2px}
+.amen{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.amen div{display:flex;gap:12px;align-items:center;padding:16px 18px;border:1px solid rgba(255,255,255,.12);border-radius:16px;font-size:15px}
+.amen svg{width:24px;height:24px;flex:none;color:var(--ochre-2)}
+@media (max-width:980px){.room-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}.amen{grid-template-columns:1fr 1fr}}
+
+/* direct */
+.direct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dcard{padding:34px;border-radius:24px;background:#fff;box-shadow:0 20px 50px -34px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.dcard .ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin-bottom:22px}
+.dcard h3{font-family:"Syne",sans-serif;font-size:24px;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px}
+.dcard p{color:var(--ink-2);font-size:15.5px}
+@media (max-width:900px){.direct-grid{grid-template-columns:1fr}}
+
+/* explore */
+.explore{background:var(--snow-2)}
+.ex-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.ex-map{position:relative;aspect-ratio:1;background:radial-gradient(circle at 50% 50%,#fff 0,#f2ece2 60%,#e6ddcf 100%);border-radius:50%;box-shadow:inset 0 0 0 1px var(--line)}
+.ex-map svg{width:100%;height:100%}
+.ex-list{display:grid;gap:8px}
+.ex-item{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-radius:16px;background:#fff;cursor:pointer;transition:background .3s,color .3s,transform .3s var(--ease);border:0;font:inherit;text-align:left;width:100%;color:var(--ink)}
+.ex-item b{font-family:"Syne",sans-serif;font-size:20px;letter-spacing:-.01em}
+.ex-item small{display:block;color:var(--ink-2);font-size:14px}
+.ex-item span.km{font-family:"Syne",sans-serif;font-weight:700;color:var(--ochre);white-space:nowrap}
+.ex-item.on,.ex-item:hover{background:var(--ink);color:#fff;transform:translateX(6px)}
+.ex-item.on small,.ex-item:hover small{color:#b9c2d0}
+.ex-note{font-size:13px;color:var(--ink-2);margin-top:12px}
+@media (max-width:900px){.ex-grid{grid-template-columns:minmax(0,1fr)}.ex-map{max-width:440px;margin-inline:auto;width:100%}}
+
+/* routes */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.route{border-radius:24px;padding:34px;color:#fff;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
+.route svg.bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.route>*:not(.bg){position:relative;z-index:1}
+.route .tagx{align-self:flex-start;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,.18);padding:6px 12px;border-radius:999px;margin-bottom:auto}
+.route h3{font-family:"Syne",sans-serif;font-size:32px;letter-spacing:-.02em;line-height:1.05;margin-top:30px}
+.route p{opacity:.9;font-size:15.5px;margin-top:8px}
+.route .km{font-family:"Syne",sans-serif;font-size:56px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.tip{margin-top:20px;padding:20px 24px;border-radius:18px;background:#fff;display:flex;gap:14px;align-items:flex-start;color:var(--ink-2);font-size:15px;box-shadow:0 20px 50px -34px rgba(0,0,0,.4)}
+.tip b{color:var(--ink)}
+@media (max-width:900px){.routes{grid-template-columns:minmax(0,1fr)}}
+
+/* contact */
+.contact{background:var(--ink);color:#fff}
+.c-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}
+.c-card{background:#1f2b3d;border-radius:24px;padding:36px}
+.c-row{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.c-row:last-of-type{border-bottom:0}
+.c-row small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre-2);font-weight:700;margin-bottom:4px}
+.c-row a:hover{color:var(--ochre-2)}
+.map{border-radius:24px;overflow:hidden;min-height:440px;position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.8)}
+@media (max-width:900px){.c-grid{grid-template-columns:minmax(0,1fr)}.map{min-height:320px}}
+footer{background:var(--ink);color:#b9c2d0;padding:0 0 30px;overflow:hidden}
+footer .big{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(60px,15vw,240px);line-height:.85;letter-spacing:-.05em;color:#1f2b3d;white-space:nowrap;text-align:center}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px;margin-top:20px}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .3s var(--ease)}
+.float-wa:hover{transform:scale(1.08)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Life Inn Spiti, home">
+      <svg viewBox="0 0 34 34" fill="none"><path d="M2 28 12 12l6 9 4-6 10 13z" fill="currentColor" opacity=".9"/><circle cx="25" cy="8" r="3.5" fill="#e2a562"/></svg>
+      Life Inn Spiti
+    </a>
+    <nav id="links"><a href="#stay">Stay</a><a href="#rooms">Rooms</a><a href="#explore">Explore</a><a href="#getting-here">Getting here</a><a href="#contact">Contact</a></nav>
+    <a href="#book" class="btn btn-o" id="navBook">Book direct</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="22" height="14" viewBox="0 0 22 14"><path d="M0 1h22M0 7h22M0 13h22" stroke="currentColor" stroke-width="2"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="sky" id="sky"></div>
+    <canvas class="stars" id="stars"></canvas>
+    <div class="sun" id="sun"></div>
+    <div class="ridges" id="ridges">
+      <svg data-depth=".15" viewBox="0 0 1600 600" preserveAspectRatio="none" style="height:100%"><path d="M0 600V260l120-90 90 40 140-150 120 110 90-60 160 160 110-70 150-120 130 110 120-60 170 140 200-50V600z" fill="#cdd6e4" opacity=".55"/><path d="M350 60 380 100 320 100z M1050 120 1080 160 1020 160z" fill="#fff" opacity=".9"/></svg>
+      <svg data-depth=".3" viewBox="0 0 1600 600" preserveAspectRatio="none" style="height:88%"><path d="M0 600V300l160-110 110 70 150-150 170 170 120-80 170 120 140-150 180 170 150-90 250 110V600z" fill="#b08868"/><path d="M420 110 470 160 380 170z M1080 140 1120 190 1040 190z" fill="#f4efe7"/></svg>
+      <svg data-depth=".5" viewBox="0 0 1600 600" preserveAspectRatio="none" style="height:70%"><path d="M0 600V340l140-60 170 90 190-150 160 110 200-80 150 120 170-90 180 110 240-60V600z" fill="#8f6446"/></svg>
+      <svg data-depth=".8" viewBox="0 0 1600 600" preserveAspectRatio="none" style="height:46%"><path d="M0 600V380l220 40 200-70 260 60 240-80 220 70 260-50 200 30V600z" fill="#5a3f2d"/><g fill="#fff"><rect x="1040" y="330" width="60" height="40"/><rect x="1110" y="340" width="44" height="30"/><rect x="990" y="345" width="40" height="25"/></g><g fill="#c7873f"><rect x="1040" y="326" width="60" height="6"/><rect x="1110" y="336" width="44" height="6"/></g></svg>
+    </div>
+    <svg class="flags" viewBox="0 0 1600 120" preserveAspectRatio="none" id="flags" aria-hidden="true"><path id="flagLine" d="M-20 18 Q800 110 1620 18" stroke="#fff" stroke-opacity=".7" stroke-width="1.5" fill="none"/></svg>
+
+    <div class="hero-copy"><div class="wrap">
+      <span class="alt"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 20 9 8l4 6 3-4 6 10z"/></svg>Kaza · Spiti Valley · ~3,800 m</span>
+      <h1>A warm home in the <span>cold desert.</span></h1>
+      <p>Life Inn Spiti is a family homestay a short walk from Kaza's centre, with bright rooms, a terrace, a garden and hosts who'll make Spiti feel like home.</p>
+    </div></div>
+
+    <div class="clock" id="clock"><small>Right now in Kaza</small><b id="kazaTime">--:--</b><div class="modes" id="modes"><button data-m="auto" class="on">Live</button><button data-m="dawn">Dawn</button><button data-m="day">Day</button><button data-m="dusk">Dusk</button><button data-m="night">Night</button></div></div>
+
+    <form class="book" id="book" onsubmit="return false">
+      <label><span>Check in</span><input type="date" id="cin" required></label>
+      <label><span>Check out</span><input type="date" id="cout" required></label>
+      <label><span>Guests</span><select id="guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label>
+      <label><span>Room</span><select id="room"><option>Double room</option><option>Triple room</option><option>Family room</option><option>Not sure yet</option></select></label>
+      <button class="btn btn-o" id="bookBtn" type="submit">Check availability →</button>
+    </form>
+  </section>
+
+  <!-- STAY -->
+  <section class="sec" id="stay">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="eyebrow">The stay</span>
+        <h2 class="h2 reveal">Not a hotel.<br><span>A home in Kaza.</span></h2>
+        <p class="big reveal" style="margin-top:30px">Four rooms, one family, and all of Spiti on the doorstep. Come back from Key Monastery or the Langza fossils to <em>a quiet room, a hot cup of tea and a real conversation</em> about where to go tomorrow.</p>
+        <div class="rate reveal"><b>4.9</b><div><div class="s">★★★★★</div><small>136 reviews on Google. Guests talk most about the hosts.</small></div></div>
+      </div>
+      <div class="facts">
+        <div class="fact reveal"><b>4</b><span>Rooms, so it never feels crowded</span></div>
+        <div class="fact dark reveal"><b>~290m</b><span>From Kaza's centre</span></div>
+        <div class="fact och reveal"><b>Private</b><span>Bathroom in every room</span></div>
+        <div class="fact reveal"><b>Free</b><span>Wi-Fi &amp; parking</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section class="sec rooms" id="rooms">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Rooms</span><h2 class="h2 reveal">Pick your <span>room.</span></h2></div><p class="reveal">Every room has a private bathroom with a shower, fresh toiletries and an electric kettle for that first cup of tea while the sun hits the peaks.</p></div>
+      <div class="room-grid" id="roomGrid"></div>
+      <div class="amen reveal">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM6 12V6a2 2 0 0 1 4 0"/></svg>Private bathroom</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg>Free Wi-Fi</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>Free parking</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11h12v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4zM17 12h1a2 2 0 0 1 0 4h-1M9 4c0 2 2 2 2 4M13 4c0 2 2 2 2 4"/></svg>Kettle in room</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20h18M5 20V10l7-5 7 5v10"/><path d="M9 20v-5h6v5"/></svg>Terrace &amp; balcony</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12M12 12c0-4 3-7 7-7 0 4-3 7-7 7zM12 14c0-3-2-5-5-5 0 3 2 5 5 5z"/></svg>Garden</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11h16M6 11a6 6 0 0 0 12 0M12 4v3"/></svg>Breakfast available</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Family-run</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECT -->
+  <section class="sec" id="direct">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Why book with us</span><h2 class="h2 reveal">Talk to the <span>family,</span><br>not a platform.</h2></div></div>
+      <div class="direct-grid">
+        <div class="dcard reveal"><div class="ico" style="background:#fdf1e3"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c7873f" stroke-width="2"><path d="M21 12a9 9 0 1 1-4-7.5L21 3v5h-5"/></svg></div><h3>Your booking goes straight to us</h3><p>No middleman between you and the people hosting you. Message, confirm, and you're done.</p></div>
+        <div class="dcard reveal"><div class="ico" style="background:#e7eefb"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f5fb3" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg></div><h3>Ask us anything</h3><p>Roads, weather, acclimatisation, day trips, where to eat. We live here, so just ask before you come.</p></div>
+        <div class="dcard reveal"><div class="ico" style="background:#e5f4ec"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2e9e5b" stroke-width="2"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><h3>Hosts guests remember</h3><p>Our reviews talk about the hospitality more than anything else. That's the part we care about most.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section class="sec explore" id="explore">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Around Kaza</span><h2 class="h2 reveal">Spiti starts at<br>our <span>door.</span></h2></div><p class="reveal">Kaza is the base for the whole valley. Here's how far the classics are. Pick one to see it on the map.</p></div>
+      <div class="ex-grid">
+        <div class="ex-map reveal"><svg viewBox="0 0 500 500" id="exMap" aria-label="Map of places around Kaza"></svg></div>
+        <div><div class="ex-list" id="exList"></div><p class="ex-note">Approximate road distances from Kaza. Ask us for the best order to see them in.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING HERE -->
+  <section class="sec" id="getting-here">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Getting here</span><h2 class="h2 reveal">Two roads <span>in.</span></h2></div><p class="reveal">Both are spectacular. Which one you take depends on the season, so message us before you set off and we'll tell you what the roads are like.</p></div>
+      <div class="routes">
+        <div class="route reveal" style="background:linear-gradient(160deg,#2f5fb3,#16202e)">
+          <svg class="bg" viewBox="0 0 600 300" preserveAspectRatio="none"><path d="M0 300V180l100-60 90 40 120-90 110 80 90-50 90 70v130z" fill="rgba(255,255,255,.08)"/></svg>
+          <span class="tagx">Summer route</span>
+          <div class="km">~200 km</div>
+          <h3>From Manali</h3>
+          <p>Through the Atal Tunnel and over Kunzum Pass. Usually open only in the warmer months.</p>
+        </div>
+        <div class="route reveal" style="background:linear-gradient(160deg,#c7873f,#5a3f2d)">
+          <svg class="bg" viewBox="0 0 600 300" preserveAspectRatio="none"><path d="M0 300V200l140-50 100 60 130-100 120 90 110-40v140z" fill="rgba(255,255,255,.08)"/></svg>
+          <span class="tagx">Most of the year</span>
+          <div class="km">~420 km</div>
+          <h3>From Shimla</h3>
+          <p>Via Kinnaur and the Sutlej and Spiti valleys. Longer, but open for more of the year.</p>
+        </div>
+      </div>
+      <div class="tip reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c7873f" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><div><b>Kaza sits at around 3,800 m.</b> Take your first day slow, drink plenty of water, and let your body adjust before heading higher.</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec contact" id="contact">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Contact</span><h2 class="h2 reveal" style="color:#fff">See you in <span>Spiti.</span></h2></div></div>
+      <div class="c-grid">
+        <div class="c-card reveal">
+          <div class="c-row"><small>Address</small>70/2, Kaza Soma, near Police Station,<br>Kaza, Lahaul &amp; Spiti,<br>Himachal Pradesh 172114</div>
+          <div class="c-row"><small>Call</small><a href="tel:+919015441399">+91 90154 41399</a></div>
+          <div class="c-row"><small>WhatsApp</small><a href="https://wa.me/919015441399" target="_blank" rel="noopener">Message the family →</a></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+            <a class="btn btn-o" href="#book" onclick="document.getElementById('cin').focus()">Check availability</a>
+            <a class="btn btn-line" style="color:#fff" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Life+Inn+Spiti+Kaza">Directions</a>
+          </div>
+        </div>
+        <div class="map reveal"><iframe title="Map to Life Inn Spiti" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Life%20Inn%20Spiti%2C%20Kaza&z=15&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big" aria-hidden="true">Life Inn Spiti</div>
+    <div class="row"><span>© <span id="yr"></span> Life Inn Spiti · Kaza, Himachal Pradesh</span><span style="font-family:'Tiro Devanagari Hindi',serif;font-size:16px">लाइफ इन स्पीति</span></div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/919015441399" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NS = 'http://www.w3.org/2000/svg';
+  const PHONE = '919015441399';
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* nav */
+  const nav = document.getElementById('nav'), burger = document.getElementById('burger');
+  const onS = () => nav.classList.toggle('solid', scrollY > innerHeight * .75); addEventListener('scroll', onS, { passive: true }); onS();
+  burger.onclick = () => burger.setAttribute('aria-expanded', nav.classList.toggle('open'));
+  document.querySelectorAll('#links a').forEach(a => a.onclick = () => nav.classList.remove('open'));
+  document.getElementById('navBook').onclick = e => { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => document.getElementById('cin').focus(), 500); };
+
+  /* prayer flags */
+  const flags = document.getElementById('flags'), line = document.getElementById('flagLine');
+  const cols = ['--f-blue', '--f-white', '--f-red', '--f-green', '--f-yellow'].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim());
+  const L = line.getTotalLength(), n = 34;
+  for (let i = 1; i < n; i++) {
+    const p = line.getPointAtLength(L * i / n);
+    const r = document.createElementNS(NS, 'rect');
+    r.setAttribute('x', p.x - 14); r.setAttribute('y', p.y); r.setAttribute('width', 28); r.setAttribute('height', 34);
+    r.setAttribute('fill', cols[i % 5]); r.setAttribute('opacity', .92); r.setAttribute('class', 'flag');
+    r.style.animationDelay = (-i * .23) + 's'; flags.appendChild(r);
+  }
+
+  /* sky: live Kaza time (IST) or a chosen mode */
+  const SKIES = {
+    dawn: { bg: 'linear-gradient(180deg,#3b4a7a 0%,#c98aa0 45%,#f6c49a 75%,#f9e2c4 100%)', stars: .25, sun: { top: '58%', left: '18%', c: '#ffd9a0', glow: '0 0 90px 40px rgba(255,190,130,.6)' } },
+    day: { bg: 'linear-gradient(180deg,#1d4fa8 0%,#3f7fd6 45%,#8fb9ea 80%,#cfe0f3 100%)', stars: 0, sun: { top: '8%', left: '50%', c: '#fff7df', glow: '0 0 120px 50px rgba(255,248,220,.55)' } },
+    dusk: { bg: 'linear-gradient(180deg,#1e2350 0%,#7a3c6b 40%,#e0715a 70%,#f7b267 100%)', stars: .35, sun: { top: '56%', left: '82%', c: '#ffb070', glow: '0 0 100px 45px rgba(255,140,80,.6)' } },
+    night: { bg: 'linear-gradient(180deg,#05070f 0%,#0d1633 50%,#1b2a52 100%)', stars: 1, sun: { top: '9%', left: '56%', c: '#e8eefc', glow: '0 0 60px 20px rgba(200,215,255,.35)' } }
+  };
+  const skyEl = document.getElementById('sky'), starC = document.getElementById('stars'), sun = document.getElementById('sun');
+  let mode = 'auto';
+  const kazaNow = () => new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+  const phase = h => h >= 5 && h < 7 ? 'dawn' : h >= 7 && h < 17 ? 'day' : h >= 17 && h < 19 ? 'dusk' : 'night';
+  function applySky() {
+    const now = kazaNow();
+    document.getElementById('kazaTime').textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    const s = SKIES[mode === 'auto' ? phase(now.getHours()) : mode];
+    skyEl.style.background = s.bg; starC.style.opacity = s.stars;
+    Object.assign(sun.style, { top: s.sun.top, left: s.sun.left, background: s.sun.c, boxShadow: s.sun.glow });
+  }
+  document.querySelectorAll('#modes button').forEach(b => b.onclick = () => { mode = b.dataset.m; document.querySelectorAll('#modes button').forEach(x => x.classList.toggle('on', x === b)); applySky(); });
+  applySky(); setInterval(applySky, 30000);
+
+  /* stars */
+  const sg = starC.getContext('2d');
+  let stars = [];
+  const sizeStars = () => { const d = Math.min(2, devicePixelRatio || 1); starC.width = innerWidth * d; starC.height = innerHeight * d; sg.setTransform(d, 0, 0, d, 0, 0); stars = Array.from({ length: 260 }, () => ({ x: Math.random() * innerWidth, y: Math.random() * innerHeight * .7, r: Math.random() * 1.3 + .2, p: Math.random() * 6 })); };
+  sizeStars(); addEventListener('resize', sizeStars);
+  const twinkle = t => { sg.clearRect(0, 0, innerWidth, innerHeight); stars.forEach(s => { sg.globalAlpha = .5 + .5 * Math.sin(t / 900 + s.p); sg.fillStyle = '#fff'; sg.beginPath(); sg.arc(s.x, s.y, s.r, 0, 7); sg.fill(); }); if (!reduce) requestAnimationFrame(twinkle); };
+  requestAnimationFrame(twinkle);
+
+  /* ridge parallax */
+  const layers = [...document.querySelectorAll('#ridges svg')];
+  let mx = 0;
+  const par = () => { const y = scrollY; layers.forEach(l => { const d = +l.dataset.depth; l.style.transform = `translate(${mx * d * -30}px, ${y * d * .5}px)`; }); };
+  if (!reduce) { addEventListener('scroll', par, { passive: true }); addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; par(); }); }
+
+  /* booking → WhatsApp */
+  const cin = document.getElementById('cin'), cout = document.getElementById('cout');
+  const iso = d => d.toISOString().slice(0, 10);
+  const today = new Date(); cin.min = iso(today); cout.min = iso(new Date(today.getTime() + 864e5));
+  cin.onchange = () => { const d = new Date(cin.value); d.setDate(d.getDate() + 1); cout.min = iso(d); if (!cout.value || cout.value <= cin.value) cout.value = iso(d); };
+  const fmt = v => v ? new Date(v).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'flexible';
+  document.getElementById('bookBtn').onclick = () => {
+    const msg = `Namaste! I'd like to stay at Life Inn Spiti.\nCheck-in: ${fmt(cin.value)}\nCheck-out: ${fmt(cout.value)}\nGuests: ${document.getElementById('guests').value}\nRoom: ${document.getElementById('room').value}\nIs it available?`;
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+  };
+
+  /* rooms */
+  const rooms = [
+    ['Double Room', 'For two', 'A cosy room for couples and friends, with a private bathroom and mountain light in the morning.', 1],
+    ['Triple Room', 'For three', 'Room for a small group, whether that\'s bikers, friends on a road trip, or a family of three.', 2],
+    ['Family Room', 'For families', 'Our largest room, with space for the whole family to spread out after a long day on the road.', 3]
+  ];
+  const rg = document.getElementById('roomGrid');
+  rooms.forEach(([t, s, p, beds], i) => {
+    const bedsSvg = Array.from({ length: beds }, (_, b) => { const x = 40 + b * (320 / beds); const w = 320 / beds - 20; return `<rect x="${x}" y="150" width="${w}" height="44" rx="8" fill="#f5f2ec"/><rect x="${x}" y="140" width="${w}" height="16" rx="6" fill="#e2a562"/><rect x="${x + 8}" y="126" width="${Math.min(46, w / 2 - 8)}" height="18" rx="6" fill="#fff"/>`; }).join('');
+    const el = document.createElement('article'); el.className = 'room reveal'; el.style.transitionDelay = i * .1 + 's';
+    el.innerHTML = `<div class="pic"><svg viewBox="0 0 400 230" preserveAspectRatio="xMidYMid slice"><rect width="400" height="230" fill="#2b3a52"/><rect x="250" y="30" width="110" height="80" rx="6" fill="#8fb9ea"/><path d="M250 110l30-40 25 25 20-20 35 35z" fill="#b08868"/><path d="M262 60l8-10 8 10z" fill="#fff"/><rect x="250" y="30" width="110" height="80" rx="6" fill="none" stroke="#c7873f" stroke-width="4"/><path d="M305 30v80" stroke="#c7873f" stroke-width="3"/><rect y="194" width="400" height="36" fill="#1f2b3d"/>${bedsSvg}<g fill="#d8413a"><rect x="30" y="40" width="14" height="18"/></g><g fill="#f2c230"><rect x="48" y="44" width="14" height="18"/></g><g fill="#2e9e5b"><rect x="66" y="48" width="14" height="18"/></g><g fill="#2d6cdf"><rect x="84" y="50" width="14" height="18"/></g><path d="M24 38q40 14 80 12" stroke="#fff" stroke-opacity=".5" fill="none"/></svg></div>
+      <div class="body"><h3>${t}</h3><div class="sl">${s} · Private bathroom</div><p>${p}</p><a href="https://wa.me/${PHONE}?text=${encodeURIComponent('Namaste! Is the ' + t + ' available? My dates are: ')}" target="_blank" rel="noopener">Ask about this room →</a></div>`;
+    rg.appendChild(el);
+  });
+
+  /* explore map */
+  const places = [
+    ['Key Monastery', 'Hilltop gompa above the Spiti river', 14, 250],
+    ['Kibber', 'One of the highest villages in the region', 19, 285],
+    ['Chicham Bridge', 'Dizzying bridge over a deep gorge', 24, 320],
+    ['Langza', 'Fossils and the giant Buddha statue', 16, 195],
+    ['Hikkim', 'Send a postcard from the high post office', 15, 165],
+    ['Komic', 'Tiny high-altitude village and monastery', 19, 135],
+    ['Dhankar', 'Cliff-top fort monastery and lake trek', 32, 40],
+    ['Tabo', 'Ancient monastery with painted murals', 47, 18]
+  ];
+  const map = document.getElementById('exMap'), list = document.getElementById('exList');
+  const C = 250, scale = 5;
+  map.innerHTML = [1, 2, 3].map(r => `<circle cx="${C}" cy="${C}" r="${r * 65}" fill="none" stroke="rgba(22,32,46,.1)" stroke-dasharray="4 6"/>`).join('') +
+    '<path d="M40 330C120 300 170 270 250 250S380 170 470 120" stroke="#8fb9ea" stroke-width="10" fill="none" stroke-linecap="round" opacity=".7"/>';
+  const dots = places.map(([n, d, km, ang]) => {
+    const a = ang * Math.PI / 180, r = Math.min(210, km * scale);
+    const x = C + Math.cos(a) * r, y = C + Math.sin(a) * r;
+    const g = document.createElementNS(NS, 'g');
+    g.innerHTML = `<line x1="${C}" y1="${C}" x2="${x}" y2="${y}" stroke="#c7873f" stroke-width="2" stroke-dasharray="4 5" opacity="0"/><circle cx="${x}" cy="${y}" r="7" fill="#16202e"/><text x="${x}" y="${y - 14}" text-anchor="middle" font-family="Syne" font-weight="700" font-size="14" fill="#16202e">${n}</text>`;
+    map.appendChild(g); return g;
+  });
+  const home = document.createElementNS(NS, 'g');
+  home.innerHTML = `<circle cx="${C}" cy="${C}" r="22" fill="#c7873f" opacity=".2"><animate attributeName="r" values="14;30;14" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="${C}" cy="${C}" r="11" fill="#c7873f" stroke="#fff" stroke-width="3"/><text x="${C}" y="${C + 34}" text-anchor="middle" font-family="Syne" font-weight="800" font-size="15" fill="#16202e">Life Inn · Kaza</text>`;
+  map.appendChild(home);
+  const select = i => {
+    list.querySelectorAll('.ex-item').forEach((b, j) => b.classList.toggle('on', i === j));
+    dots.forEach((g, j) => { g.querySelector('line').setAttribute('opacity', i === j ? 1 : 0); g.querySelector('circle').setAttribute('fill', i === j ? '#c7873f' : '#16202e'); g.querySelector('circle').setAttribute('r', i === j ? 10 : 7); });
+  };
+  places.forEach(([n, d, km], i) => {
+    const b = document.createElement('button'); b.className = 'ex-item'; b.type = 'button';
+    b.innerHTML = `<div><b>${n}</b><small>${d}</small></div><span class="km">~${km} km</span>`;
+    b.onmouseenter = b.onfocus = b.onclick = () => select(i); list.appendChild(b);
+  });
+  select(0);
+
+  /* reveal */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;background:rgba(17,17,17,.88);color:#fff;font:600 12px/1.3 system-ui,sans-serif;padding:8px 12px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.3);pointer-events:none">Demo concept for Life Inn Spiti · not the official website</div>
+</body>
+</html>

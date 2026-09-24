@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<!--
+  Website concept for B.M. Sitarmaker (Bashir Mehboob Sitarmaker), Miraj.
+  Built as a pitch. Confirm every detail with the owners and get their permission before it goes live.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B.M. Sitarmaker · Handmade Sitars & Tanpuras · Miraj</title>
+<meta name="description" content="Handmade sitars and tanpuras from a family of instrument makers in Miraj, Maharashtra. Custom orders, careful packing, shipped across India and abroad.">
+<meta name="theme-color" content="#0f0b08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ebony:#0f0b08;
+  --ebony-2:#17110c;
+  --teak:#3b2415;
+  --teak-2:#5a3820;
+  --teak-3:#7a4d2b;
+  --brass:#c8a25a;
+  --brass-2:#e3c27f;
+  --ivory:#efe3c8;
+  --muted:#a8957a;
+  --line:rgba(200,162,90,.2);
+  --ease:cubic-bezier(.22,.9,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ebony);color:var(--ivory);font-family:"Jost",system-ui,sans-serif;font-weight:300;font-size:17px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.dev{font-family:"Noto Serif Devanagari",serif}
+::selection{background:var(--brass);color:var(--ebony)}
+
+/* wood grain texture */
+.grain{background-image:
+  repeating-linear-gradient(92deg,rgba(0,0,0,.18) 0 2px,transparent 2px 9px),
+  repeating-linear-gradient(88deg,rgba(255,220,170,.05) 0 1px,transparent 1px 23px),
+  linear-gradient(180deg,var(--teak-2),var(--teak) 60%,#2a190e)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(15,11,8,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;gap:14px;align-items:center}
+.brand .m{width:44px;height:44px;border:1px solid var(--brass);border-radius:50%;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;color:var(--brass-2);font-size:18px;letter-spacing:.02em}
+.brand b{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:22px;line-height:1;display:block;letter-spacing:.02em}
+.brand small{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.nav nav{display:flex;gap:30px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+.nav nav a{opacity:.75;transition:opacity .3s,color .3s}
+.nav nav a:hover{opacity:1;color:var(--brass-2)}
+.wa{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:var(--brass);color:var(--ebony);font-weight:500;font-size:14px;letter-spacing:.04em;transition:transform .3s var(--ease),background .3s}
+.wa:hover{transform:translateY(-2px);background:var(--brass-2)}
+.wa svg{width:18px;height:18px}
+.ghost{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;border:1px solid var(--line);font-size:14px;letter-spacing:.04em;transition:border-color .3s,background .3s}
+.ghost:hover{border-color:var(--brass);background:rgba(200,162,90,.08)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ivory);width:46px;height:46px;border-radius:50%;cursor:pointer}
+@media (max-width:900px){
+  .nav nav,.nav .wa{display:none}.burger{display:grid;place-items:center}
+  .nav.open nav{display:flex;flex-direction:column;position:fixed;inset:80px 0 auto 0;background:rgba(15,11,8,.97);padding:10px 16px 24px;gap:0;border-bottom:1px solid var(--line)}
+  .nav.open nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+}
+
+/* hero */
+.hero{position:relative;min-height:100svh;padding-top:120px;display:flex;flex-direction:column;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 70% 30%,rgba(200,162,90,.16),transparent 70%),radial-gradient(50% 40% at 10% 10%,rgba(122,77,43,.25),transparent 70%);pointer-events:none}
+.hero-top{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.kicker{font-size:12px;letter-spacing:.36em;text-transform:uppercase;color:var(--brass);display:flex;gap:14px;align-items:center}
+.kicker::before{content:"";width:40px;height:1px;background:var(--brass)}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(50px,7.6vw,118px);line-height:.95;letter-spacing:-.01em;margin-top:18px}
+.hero h1 em{font-weight:500;color:var(--brass-2)}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:block;transform:translateY(105%);animation:rise 1.3s var(--ease) forwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.12s}
+@keyframes rise{to{transform:none}}
+.hero-side p{color:#d9ccb1;max-width:420px}
+.hero-side .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.rating{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:14px;color:var(--muted)}
+.rating b{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--ivory);font-weight:600;line-height:1}
+.stars{color:var(--brass-2);letter-spacing:2px}
+
+/* the playable neck */
+.neck-wrap{position:relative;margin-top:auto;padding:40px 0 0}
+.neck-hint{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sound-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;border:1px solid var(--brass);color:var(--brass-2);background:rgba(200,162,90,.08);cursor:pointer;font:inherit;letter-spacing:.14em;transition:background .3s}
+.sound-btn:hover{background:rgba(200,162,90,.18)}
+.sound-btn .dot{width:8px;height:8px;border-radius:50%;background:var(--brass-2);animation:blink 1.4s infinite}
+.sound-btn.on .dot{background:#6ee79a;animation:none}
+@keyframes blink{50%{opacity:.25}}
+.neck{position:relative;height:clamp(230px,30vw,330px);border-radius:26px 0 0 26px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.9),inset 0 2px 0 rgba(255,220,170,.15);cursor:crosshair;touch-action:none;margin-right:-16px}
+.neck svg{position:absolute;inset:0;width:100%;height:100%}
+.string{stroke:#e9dfca;fill:none;filter:drop-shadow(0 3px 2px rgba(0,0,0,.6));transition:stroke .3s}
+.string.hit{stroke:#fff3d6}
+.sargam{position:absolute;left:14px;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(15,11,8,.7);border:1px solid var(--brass);display:grid;place-items:center;font-size:13px;color:var(--brass-2);pointer-events:none;transition:transform .2s,background .2s}
+.sargam.hit{transform:translateY(-50%) scale(1.3);background:var(--brass);color:var(--ebony)}
+.neck .tumba{position:absolute;inset:50% -9vw auto auto;width:clamp(260px,34vw,480px);height:auto;aspect-ratio:1;transform:translateY(-50%);pointer-events:none;filter:drop-shadow(-20px 0 40px rgba(0,0,0,.6))}
+@media (max-width:900px){
+  .hero-top{grid-template-columns:1fr}
+  .neck .tumba{right:-44vw;width:70vw}
+  .neck{border-radius:20px 0 0 20px}
+}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);padding:22px 0;overflow:hidden;background:var(--ebony-2)}
+.marq .t{display:flex;width:max-content;animation:mq 40s linear infinite}
+.marq span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(24px,3vw,40px);padding:0 34px;white-space:nowrap;display:flex;align-items:center;gap:68px;color:#d9ccb1}
+.marq span::after{content:"";width:9px;height:9px;transform:rotate(45deg);background:var(--brass)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:clamp(90px,12vw,160px) 0;position:relative}
+.h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(42px,5.6vw,86px);line-height:1;letter-spacing:-.01em}
+.h2 em{font-weight:500;color:var(--brass-2)}
+.lead{color:#d9ccb1;max-width:560px;font-size:18px}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* family */
+.family-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.family-art{position:relative;aspect-ratio:4/5;border-radius:30px;overflow:hidden;border:1px solid var(--line)}
+.family-art svg{width:100%;height:100%}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:44px}
+.facts div{background:var(--ebony);padding:24px 20px}
+.facts b{display:block;font-family:"Cormorant Garamond",serif;font-size:40px;font-weight:600;line-height:1;color:var(--brass-2)}
+.facts span{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:900px){.family-grid{grid-template-columns:1fr;gap:44px}.facts{grid-template-columns:1fr 1fr 1fr}.facts b{font-size:30px}.facts div{padding:18px 12px}}
+
+/* instruments */
+.inst{background:var(--ebony-2);border-block:1px solid var(--line)}
+.inst-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;border:1px solid var(--line);border-radius:26px;padding:30px;background:linear-gradient(180deg,rgba(90,56,32,.25),rgba(15,11,8,.3));overflow:hidden;min-height:540px;display:flex;flex-direction:column;transition:border-color .5s,transform .6s var(--ease)}
+.card:hover{border-color:rgba(227,194,127,.6);transform:translateY(-8px)}
+.card .ill{flex:1;display:grid;place-items:center;margin:10px 0 24px;min-height:260px}
+.card .ill svg{height:280px;width:auto;transition:transform 1s var(--ease)}
+.card:hover .ill svg{transform:rotate(-6deg) scale(1.04)}
+.card .no{font-size:12px;letter-spacing:.3em;color:var(--brass)}
+.card h3{font-family:"Cormorant Garamond",serif;font-size:40px;font-weight:600;line-height:1}
+.card .dev{color:var(--brass);font-size:18px;margin:6px 0 12px}
+.card p{color:#cfc2a6;font-size:15.5px}
+.card .ask{margin-top:18px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2);display:inline-flex;gap:8px;align-items:center}
+.card .ask:hover{gap:14px}
+@media (max-width:980px){.cards{grid-template-columns:1fr;max-width:560px;margin-inline:auto}.card{min-height:0}}
+
+/* drone */
+.drone{text-align:center;overflow:hidden}
+.drone .viz{position:relative;width:min(520px,86vw);aspect-ratio:1;margin:50px auto 0}
+.drone canvas{position:absolute;inset:0;width:100%;height:100%}
+.drone .play{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:132px;height:132px;border-radius:50%;border:1px solid var(--brass);background:radial-gradient(circle,#3b2415,#17110c);color:var(--brass-2);cursor:pointer;display:grid;place-items:center;font:inherit;letter-spacing:.2em;font-size:12px;text-transform:uppercase;transition:transform .4s var(--ease),box-shadow .4s}
+.drone .play:hover{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 0 60px rgba(200,162,90,.35)}
+.drone .play svg{width:36px;height:36px;margin-bottom:6px}
+.drone .notes{display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+.drone .notes span{padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--muted);transition:all .2s}
+.drone .notes span.on{border-color:var(--brass);color:var(--ebony);background:var(--brass)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;border-top:1px solid var(--line)}
+.step{padding:34px 26px 10px 0;position:relative}
+.step::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 6px var(--ebony)}
+.step .n{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--brass)}
+.step h3{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:600;line-height:1.1;margin:8px 0 10px}
+.step p{color:#cfc2a6;font-size:15.5px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;row-gap:20px}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* visit */
+.visit{background:var(--ebony-2);border-top:1px solid var(--line)}
+.visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;margin-top:60px}
+.vcard{border:1px solid var(--line);border-radius:26px;padding:36px;background:var(--ebony)}
+.vrow{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.vrow:last-of-type{border-bottom:0}
+.vrow span{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.vrow p,.vrow a{font-size:18px}
+.vrow a:hover{color:var(--brass-2)}
+.map{border-radius:26px;overflow:hidden;border:1px solid var(--line);min-height:420px;position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) sepia(.35) hue-rotate(-10deg) contrast(.9)}
+@media (max-width:900px){.visit-grid{grid-template-columns:1fr}.vrow{grid-template-columns:1fr;gap:4px}.map{min-height:320px}}
+
+footer{padding:80px 0 34px;overflow:hidden}
+.foot{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(60px,13vw,210px);line-height:.85;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1px rgba(200,162,90,.45);white-space:nowrap}
+.foot-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:34px;color:var(--muted);font-size:13px}
+
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .3s var(--ease)}
+.float-wa:hover{transform:scale(1.08)}
+.float-wa svg{width:30px;height:30px}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero h1 .ln>span{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="B.M. Sitarmaker, home"><span class="m">BM</span><span><b>B.M. Sitarmaker</b><small>Miraj · Maharashtra</small></span></a>
+    <nav id="links"><a href="#family">The Family</a><a href="#instruments">Instruments</a><a href="#tanpura">Hear it</a><a href="#order">Order</a><a href="#visit">Visit</a></nav>
+    <a class="wa" href="https://wa.me/918805767570?text=Namaste%2C%20I%27m%20interested%20in%20a%20handmade%20sitar%2Ftanpura." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+      WhatsApp us</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg width="20" height="14" viewBox="0 0 20 14"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-top">
+      <div>
+        <span class="kicker">Sitar &amp; Tanpura makers · Miraj</span>
+        <h1><span class="ln"><span>Handmade in Miraj.</span></span><span class="ln"><span><em>Heard around the world.</em></span></span></h1>
+      </div>
+      <div class="hero-side">
+        <p>Sitars and tanpuras shaped, fitted, tuned and decorated by hand by one family in Miraj, the town India's classical musicians have trusted for their instruments for generations.</p>
+        <div class="row">
+          <a class="wa" href="https://wa.me/918805767570?text=Namaste%2C%20I%27d%20like%20to%20order%20a%20sitar." target="_blank" rel="noopener">Order yours</a>
+          <a class="ghost" href="#instruments">See the instruments</a>
+        </div>
+        <div class="rating"><b>4.9</b><div><div class="stars">★★★★★</div>on Google · 57 reviews</div></div>
+      </div>
+    </div>
+
+    <div class="wrap neck-wrap">
+      <div class="neck-hint">
+        <span>Move across the strings to play</span>
+        <button class="sound-btn" id="soundBtn"><span class="dot"></span><span id="soundLbl">Tap to turn sound on</span></button>
+      </div>
+    </div>
+    <div class="neck grain" id="neck" style="margin-left:max(16px,calc((100vw - 1240px)/2))">
+      <svg id="neckSvg" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="strGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9d2c2"/><stop offset=".5" stop-color="#f5ecd8"/><stop offset="1" stop-color="#b9ae98"/></linearGradient>
+          <linearGradient id="fretGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6a2e"/><stop offset=".5" stop-color="#f1d796"/><stop offset="1" stop-color="#8a6a2e"/></linearGradient>
+        </defs>
+        <g id="frets"></g>
+        <g id="strings"></g>
+      </svg>
+      <svg class="tumba" viewBox="0 0 400 400" aria-hidden="true">
+        <defs>
+          <radialGradient id="gourd" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#b8743a"/><stop offset=".6" stop-color="#7a4520"/><stop offset="1" stop-color="#3a1f0d"/></radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="196" fill="url(#gourd)"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#e3c27f" stroke-width="1.5" opacity=".6"/>
+        <g id="rosette" fill="none" stroke="#efe3c8" stroke-width="1.2" opacity=".75"></g>
+        <circle cx="200" cy="200" r="24" fill="#1a0f07" stroke="#e3c27f" stroke-width="2"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="marq" aria-hidden="true"><div class="t">
+    <span>Sitar</span><span>Tanpura</span><span>Handmade to order</span><span>Seasoned wood</span><span>Hand-carved nakshi</span><span>Packed to travel</span>
+    <span>Sitar</span><span>Tanpura</span><span>Handmade to order</span><span>Seasoned wood</span><span>Hand-carved nakshi</span><span>Packed to travel</span>
+  </div></div>
+
+  <!-- FAMILY -->
+  <section class="sec" id="family">
+    <div class="wrap family-grid">
+      <div class="family-art reveal grain">
+        <svg viewBox="0 0 400 500" aria-hidden="true">
+          <defs><radialGradient id="g2" cx=".45" cy=".4" r=".7"><stop offset="0" stop-color="#c07d40"/><stop offset=".65" stop-color="#7a4520"/><stop offset="1" stop-color="#2f190b"/></radialGradient></defs>
+          <g transform="translate(200 250) rotate(-28)">
+            <rect x="-14" y="-300" width="28" height="330" rx="6" fill="#4a2c16" stroke="#c8a25a" stroke-width="1"/>
+            <g stroke="#e3c27f" stroke-width="2.4" stroke-linecap="round" id="famFrets"></g>
+            <g stroke="#efe3c8" stroke-width=".9" opacity=".8"><path d="M-6 -300V120"/><path d="M-2 -300V120"/><path d="M2 -300V120"/><path d="M6 -300V120"/></g>
+            <ellipse cx="0" cy="110" rx="118" ry="112" fill="url(#g2)"/>
+            <ellipse cx="0" cy="104" rx="84" ry="80" fill="none" stroke="#e3c27f" stroke-width="1.2" opacity=".6"/>
+            <path d="M-40 150h80" stroke="#efe3c8" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="0" cy="-238" r="36" fill="#6b3d1c" opacity=".9"/>
+            <g fill="#e3c27f"><circle cx="-16" cy="-280" r="4"/><circle cx="16" cy="-270" r="4"/><circle cx="-16" cy="-250" r="4"/><circle cx="16" cy="-240" r="4"/></g>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <span class="kicker reveal">The family</span>
+        <h2 class="h2 reveal" style="margin:18px 0 26px">A whole family, <em>one craft.</em></h2>
+        <p class="lead reveal">At B.M. Sitarmaker the whole family works on the instruments: shaping the wood, fitting the gourd, setting the frets, tuning and decorating. The father still does the tanpura decoration work himself.</p>
+        <p class="lead reveal" style="margin-top:18px">Miraj has been making sitars and tanpuras for generations, and customers come to this workshop for three things: the sound, the finish, and the care taken over every instrument before it leaves.</p>
+        <div class="facts reveal">
+          <div><b>4.9★</b><span>Google rating</span></div>
+          <div><b>1</b><span>Family workshop</span></div>
+          <div><b>🌏</b><span>Ships abroad</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUMENTS -->
+  <section class="sec inst" id="instruments">
+    <div class="wrap">
+      <div class="inst-head">
+        <h2 class="h2 reveal">The <em>instruments.</em></h2>
+        <p class="lead reveal">Every piece is made to order. Tell us who it's for, the style you play, and how you want it finished.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="no">01</span>
+          <div class="ill"><svg viewBox="0 0 120 400" aria-hidden="true"><defs><radialGradient id="s1" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#c07d40"/><stop offset="1" stop-color="#4a2a12"/></radialGradient></defs><rect x="52" y="10" width="16" height="280" rx="4" fill="#4a2c16" stroke="#c8a25a" stroke-width=".8"/><g stroke="#e3c27f" stroke-width="2" id="c1f"></g><ellipse cx="60" cy="330" rx="56" ry="62" fill="url(#s1)"/><ellipse cx="60" cy="324" rx="38" ry="44" fill="none" stroke="#e3c27f" opacity=".6"/><path d="M40 360h40" stroke="#efe3c8" stroke-width="3"/><circle cx="60" cy="54" r="20" fill="#6b3d1c"/><g stroke="#efe3c8" stroke-width=".6"><path d="M57 10v350M60 10v350M63 10v350"/></g></svg></div>
+          <h3>Sitar</h3>
+          <div class="dev">सितार</div>
+          <p>Hand-built sitars in the style you play, from student instruments to professional concert pieces, with hand-carved nakshi if you want it.</p>
+          <a class="ask" href="https://wa.me/918805767570?text=Namaste%2C%20I%27d%20like%20details%20about%20your%20sitars." target="_blank" rel="noopener">Ask about sitars →</a>
+        </article>
+        <article class="card reveal">
+          <span class="no">02</span>
+          <div class="ill"><svg viewBox="0 0 120 400" aria-hidden="true"><defs><radialGradient id="t1" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#d08a4a"/><stop offset="1" stop-color="#4a2a12"/></radialGradient></defs><rect x="50" y="10" width="20" height="250" rx="5" fill="#4a2c16" stroke="#c8a25a" stroke-width=".8"/><circle cx="60" cy="320" r="72" fill="url(#t1)"/><circle cx="60" cy="316" r="50" fill="none" stroke="#e3c27f" opacity=".55"/><g fill="none" stroke="#e3c27f" opacity=".5"><path d="M20 300q40-30 80 0"/><path d="M20 340q40 30 80 0"/></g><path d="M40 360h40" stroke="#efe3c8" stroke-width="3"/><g stroke="#efe3c8" stroke-width=".7"><path d="M55 10v350M58 10v350M62 10v350M65 10v350"/></g><g fill="#e3c27f"><circle cx="46" cy="40" r="4"/><circle cx="74" cy="60" r="4"/><circle cx="46" cy="80" r="4"/><circle cx="74" cy="100" r="4"/></g></svg></div>
+          <h3>Tanpura</h3>
+          <div class="dev">तानपुरा</div>
+          <p>Male and female tanpuras, including concert models with a rich, buzzing jawari, the foundation under every raga. Decoration done in-house.</p>
+          <a class="ask" href="https://wa.me/918805767570?text=Namaste%2C%20I%27d%20like%20details%20about%20your%20tanpuras." target="_blank" rel="noopener">Ask about tanpuras →</a>
+        </article>
+        <article class="card reveal">
+          <span class="no">03</span>
+          <div class="ill"><svg viewBox="0 0 300 300" aria-hidden="true" style="height:230px"><g fill="none" stroke="#e3c27f" stroke-width="1.4" id="nakshi"></g><circle cx="150" cy="150" r="16" fill="#c8a25a"/></svg></div>
+          <h3>Custom &amp; decorated</h3>
+          <div class="dev">नक्काशी</div>
+          <p>Carved gourds, inlay and custom decoration for a gift, a guru, or a stage instrument that should look as good as it sounds.</p>
+          <a class="ask" href="https://wa.me/918805767570?text=Namaste%2C%20I%27d%20like%20a%20custom%20decorated%20instrument." target="_blank" rel="noopener">Discuss a custom piece →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRONE -->
+  <section class="sec drone" id="tanpura">
+    <div class="wrap">
+      <span class="kicker reveal" style="justify-content:center">Put on headphones</span>
+      <h2 class="h2 reveal" style="margin-top:18px">Hear a <em>tanpura</em> breathe.</h2>
+      <p class="lead reveal" style="margin:22px auto 0">The four strings of a tanpura, Pa, Sa, Sa, Sa, plucked in a slow cycle. Press play and let the drone fill the room.</p>
+      <div class="viz reveal">
+        <canvas id="viz"></canvas>
+        <button class="play" id="droneBtn" aria-pressed="false">
+          <span><svg viewBox="0 0 24 24" fill="currentColor" id="playIco"><path d="M8 5v14l11-7z"/></svg><span id="droneLbl">Play</span></span>
+        </button>
+      </div>
+      <div class="notes" id="droneNotes"><span>Pa</span><span>Sa</span><span>Sa</span><span>low Sa</span></div>
+      <p style="margin-top:22px;color:var(--muted);font-size:13px">Synthesised in your browser for this page. The real thing sounds better.</p>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section class="sec" id="order" style="padding-top:40px">
+    <div class="wrap">
+      <span class="kicker reveal">From anywhere in the world</span>
+      <h2 class="h2 reveal" style="margin-top:18px;max-width:14ch">How ordering <em>works.</em></h2>
+      <div class="steps">
+        <div class="step reveal"><span class="n">i.</span><h3>Message us</h3><p>Tell us on WhatsApp what you play, your level, and the style you want, for example Ravi Shankar or Vilayat Khan style.</p></div>
+        <div class="step reveal"><span class="n">ii.</span><h3>Choose the details</h3><p>Wood, finish, decoration and budget. We'll suggest what suits your music best.</p></div>
+        <div class="step reveal"><span class="n">iii.</span><h3>Made by hand</h3><p>Your instrument is built to order in our Miraj workshop, then tuned and checked before it leaves.</p></div>
+        <div class="step reveal"><span class="n">iv.</span><h3>Packed to travel</h3><p>Instruments are packed carefully and shipped across India and abroad.</p></div>
+      </div>
+      <div class="reveal" style="margin-top:56px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="wa" href="https://wa.me/918805767570?text=Namaste%2C%20I%27d%20like%20to%20start%20an%20order." target="_blank" rel="noopener">Start an order on WhatsApp</a>
+        <a class="ghost" href="tel:+918805767570">Call +91 88057 67570</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="sec visit" id="visit">
+    <div class="wrap">
+      <h2 class="h2 reveal">Visit the <em>workshop.</em></h2>
+      <div class="visit-grid">
+        <div class="vcard reveal">
+          <div class="vrow"><span>Address</span><p>Sitarmaker Lane, Shaniwar Peth,<br>Miraj, Maharashtra 416410</p></div>
+          <div class="vrow"><span>Hours</span><p>Open daily until 10 PM<br><small style="color:var(--muted)">Call ahead to see instruments being made</small></p></div>
+          <div class="vrow"><span>Phone</span><a href="tel:+918805767570">+91 88057 67570</a></div>
+          <div class="vrow"><span>WhatsApp</span><a href="https://wa.me/918805767570" target="_blank" rel="noopener">Chat with us →</a></div>
+          <div style="margin-top:22px"><a class="wa" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=B.M.SITARMAKER+Miraj">Get directions</a></div>
+        </div>
+        <div class="map reveal"><iframe title="Map to B.M. Sitarmaker" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=B.M.SITARMAKER%20(Bashir%20Mehboob%20Sitarmaker)%2C%20Miraj&z=16&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot" aria-hidden="true">B.M. Sitarmaker</div>
+    <div class="foot-row"><span>© <span id="yr"></span> B.M. Sitarmaker (Bashir Mehboob Sitarmaker) · Miraj</span><span class="dev">बी.एम. सितारमेकर, मिरज</span></div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/918805767570" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NS = 'http://www.w3.org/2000/svg';
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* nav */
+  const nav = document.getElementById('nav'), burger = document.getElementById('burger');
+  const onS = () => nav.classList.toggle('solid', scrollY > 30); addEventListener('scroll', onS, { passive: true }); onS();
+  burger.onclick = () => burger.setAttribute('aria-expanded', nav.classList.toggle('open'));
+  document.querySelectorAll('#links a').forEach(a => a.onclick = () => nav.classList.remove('open'));
+
+  /* reveal */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* decorative geometry */
+  const ros = document.getElementById('rosette');
+  for (let i = 0; i < 16; i++) { const e = document.createElementNS(NS, 'ellipse'); e.setAttribute('cx', 200); e.setAttribute('cy', 140); e.setAttribute('rx', 16); e.setAttribute('ry', 56); e.setAttribute('transform', `rotate(${i * 22.5} 200 200)`); ros.appendChild(e); }
+  const nak = document.getElementById('nakshi');
+  for (let r = 0; r < 3; r++) for (let i = 0; i < 12; i++) { const e = document.createElementNS(NS, 'ellipse'); e.setAttribute('cx', 150); e.setAttribute('cy', 150 - 40 - r * 28); e.setAttribute('rx', 10 + r * 4); e.setAttribute('ry', 30 + r * 8); e.setAttribute('transform', `rotate(${i * 30 + r * 15} 150 150)`); e.setAttribute('opacity', 1 - r * .25); nak.appendChild(e); }
+  const ff = document.getElementById('famFrets');
+  for (let i = 0; i < 17; i++) { const y = -280 + i * 17 - i * i * .15; const l = document.createElementNS(NS, 'path'); l.setAttribute('d', `M-18 ${y} Q0 ${y - 6} 18 ${y}`); l.setAttribute('fill', 'none'); ff.appendChild(l); }
+  const c1 = document.getElementById('c1f');
+  for (let i = 0; i < 16; i++) { const y = 20 + i * 16; const l = document.createElementNS(NS, 'path'); l.setAttribute('d', `M48 ${y} Q60 ${y - 5} 72 ${y}`); l.setAttribute('fill', 'none'); c1.appendChild(l); }
+
+  /* ---------------- audio: Karplus-Strong plucked strings ---------------- */
+  let ctx = null, master = null, analyser = null;
+  const ensureAudio = () => {
+    if (!ctx) {
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      master = ctx.createGain(); master.gain.value = .7;
+      const delay = ctx.createDelay(); delay.delayTime.value = .19;
+      const fb = ctx.createGain(); fb.gain.value = .28;
+      const wet = ctx.createGain(); wet.gain.value = .35;
+      analyser = ctx.createAnalyser(); analyser.fftSize = 512;
+      master.connect(analyser); analyser.connect(ctx.destination);
+      master.connect(delay); delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(ctx.destination);
+    }
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  };
+  const cache = new Map();
+  function makeBuffer(freq, decay, bright, buzz, seconds) {
+    const key = [freq, decay, bright, buzz].join();
+    if (cache.has(key)) return cache.get(key);
+    const sr = ctx.sampleRate, len = Math.floor(sr * seconds), buf = ctx.createBuffer(1, len, sr), d = buf.getChannelData(0);
+    const N = Math.max(2, Math.round(sr / freq)), ring = new Float32Array(N);
+    for (let i = 0; i < N; i++) ring[i] = Math.random() * 2 - 1;
+    let idx = 0;
+    for (let i = 0; i < len; i++) {
+      const a = ring[idx], b = ring[(idx + 1) % N];
+      ring[idx] = decay * (bright * a + (1 - bright) * b);
+      d[i] = Math.tanh(a * buzz) / Math.tanh(buzz);   // soft clip = a hint of jawari buzz
+      idx = (idx + 1) % N;
+    }
+    for (let i = 0; i < 64; i++) d[i] *= i / 64;
+    cache.set(key, buf); return buf;
+  }
+  function pluck(freq, { gain = .35, decay = .997, bright = .62, buzz = 2.2, seconds = 3.2, when = 0 } = {}) {
+    if (!ctx) return;
+    const src = ctx.createBufferSource(); src.buffer = makeBuffer(freq, decay, bright, buzz, seconds);
+    const g = ctx.createGain(); g.gain.value = gain;
+    src.connect(g); g.connect(master); src.start(ctx.currentTime + when);
+  }
+
+  /* ---------------- playable neck ---------------- */
+  const SA = 277.18; // C#4
+  const RATIOS = [1, 9 / 8, 5 / 4, 4 / 3, 3 / 2, 5 / 3, 15 / 8];
+  const LABELS = ['सा', 'रे', 'ग', 'म', 'प', 'ध', 'नि'];
+  const neck = document.getElementById('neck'), svg = document.getElementById('neckSvg');
+  const gS = document.getElementById('strings'), gF = document.getElementById('frets');
+  let W = 0, H = 0, strings = [];
+  function buildNeck() {
+    W = neck.clientWidth; H = neck.clientHeight; svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    gS.innerHTML = ''; gF.innerHTML = ''; neck.querySelectorAll('.sargam').forEach(n => n.remove());
+    const fretCount = Math.max(8, Math.round(W / 70));
+    for (let i = 0; i < fretCount; i++) {
+      const x = 60 + (W * .78 - 60) * (1 - Math.pow(.93, i * 1.4)) / (1 - Math.pow(.93, fretCount * 1.4));
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', `M${x} 10 Q${x + 12} ${H / 2} ${x} ${H - 10}`);
+      p.setAttribute('stroke', 'url(#fretGrad)'); p.setAttribute('stroke-width', 5); p.setAttribute('fill', 'none'); p.setAttribute('stroke-linecap', 'round'); p.setAttribute('opacity', .9);
+      gF.appendChild(p);
+    }
+    strings = RATIOS.map((r, i) => {
+      const y = H * (.14 + i * (.72 / (RATIOS.length - 1)));
+      const p = document.createElementNS(NS, 'path'); p.setAttribute('class', 'string'); p.setAttribute('stroke-width', 3.2 - i * .28);
+      gS.appendChild(p);
+      const lab = document.createElement('span'); lab.className = 'sargam dev'; lab.textContent = LABELS[i]; lab.style.top = y + 'px'; neck.appendChild(lab);
+      const s = { y, p, lab, freq: SA * r, amp: 0, t0: 0, x: W / 2 }; draw(s, 0); return s;
+    });
+  }
+  function draw(s, off) { s.p.setAttribute('d', `M0 ${s.y} Q${s.x} ${s.y + off} ${W} ${s.y}`); }
+  let animating = false;
+  function frame(now) {
+    let any = false;
+    strings.forEach(s => {
+      if (s.amp > .05) {
+        const t = (now - s.t0) / 1000; const a = s.amp * Math.exp(-t * 3.2);
+        draw(s, a * Math.sin(t * 90)); if (a < .2) { s.amp = 0; draw(s, 0); s.p.classList.remove('hit'); s.lab.classList.remove('hit'); } else any = true;
+      }
+    });
+    animating = any; if (any) requestAnimationFrame(frame);
+  }
+  function hit(s, x, strength) {
+    s.x = x; s.amp = Math.min(16, 6 + strength); s.t0 = performance.now();
+    s.p.classList.add('hit'); s.lab.classList.add('hit');
+    if (soundOn) pluck(s.freq, { gain: .28 });
+    if (!animating && !reduce) { animating = true; requestAnimationFrame(frame); }
+  }
+  let lastY = null, lastT = 0;
+  const pointer = e => {
+    const r = neck.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    if (lastY !== null) {
+      const speed = Math.abs(y - lastY) / Math.max(1, e.timeStamp - lastT) * 8;
+      strings.forEach(s => { if ((lastY - s.y) * (y - s.y) < 0) hit(s, x, speed); });
+    }
+    lastY = y; lastT = e.timeStamp;
+  };
+  neck.addEventListener('pointermove', pointer);
+  neck.addEventListener('pointerleave', () => lastY = null);
+  neck.addEventListener('pointerdown', e => {
+    enableSound();
+    const r = neck.getBoundingClientRect(), y = e.clientY - r.top;
+    let best = strings[0]; strings.forEach(s => { if (Math.abs(s.y - y) < Math.abs(best.y - y)) best = s; });
+    hit(best, e.clientX - r.left, 6); lastY = y;
+  });
+  buildNeck(); addEventListener('resize', buildNeck);
+
+  /* sound toggle */
+  let soundOn = false;
+  const sBtn = document.getElementById('soundBtn'), sLbl = document.getElementById('soundLbl');
+  function enableSound() { if (soundOn) return; ensureAudio(); soundOn = true; sBtn.classList.add('on'); sLbl.textContent = 'Sound on · play the strings'; }
+  sBtn.onclick = () => {
+    if (!soundOn) { enableSound(); strings.forEach((s, i) => setTimeout(() => hit(s, W * .5, 4), i * 110)); }
+    else { soundOn = false; sBtn.classList.remove('on'); sLbl.textContent = 'Tap to turn sound on'; }
+  };
+
+  /* ---------------- tanpura drone ---------------- */
+  const dBtn = document.getElementById('droneBtn'), dLbl = document.getElementById('droneLbl'), ico = document.getElementById('playIco');
+  const notes = [...document.querySelectorAll('#droneNotes span')];
+  const SA3 = 138.59;
+  const cycle = [SA3 * 3 / 4, SA3, SA3, SA3 / 2];
+  let droneTimer = null, step = 0;
+  function droneTick() {
+    const f = cycle[step % 4];
+    pluck(f, { gain: step % 4 === 3 ? .5 : .36, decay: .9993, bright: .5, buzz: 3.4, seconds: 5.5 });
+    notes.forEach((n, i) => n.classList.toggle('on', i === step % 4));
+    step++;
+  }
+  dBtn.onclick = () => {
+    ensureAudio();
+    if (droneTimer) { clearInterval(droneTimer); droneTimer = null; dLbl.textContent = 'Play'; ico.innerHTML = '<path d="M8 5v14l11-7z"/>'; dBtn.setAttribute('aria-pressed', 'false'); notes.forEach(n => n.classList.remove('on')); }
+    else { step = 0; droneTick(); droneTimer = setInterval(droneTick, 1100); dLbl.textContent = 'Stop'; ico.innerHTML = '<path d="M7 6h4v12H7zM13 6h4v12h-4z"/>'; dBtn.setAttribute('aria-pressed', 'true'); }
+  };
+
+  /* radial visualiser */
+  const cv = document.getElementById('viz'), g = cv.getContext('2d');
+  function sizeCv() { const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1); cv.width = r.width * dpr; cv.height = r.height * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  sizeCv(); addEventListener('resize', sizeCv);
+  const bins = new Uint8Array(256);
+  function viz(t) {
+    const w = cv.clientWidth, h = cv.clientHeight, cx = w / 2, cy = h / 2, R = w * .19;
+    g.clearRect(0, 0, w, h);
+    if (analyser) analyser.getByteFrequencyData(bins);
+    const n = 120;
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+      const v = analyser ? bins[Math.floor((i < n / 2 ? i : n - i) * 1.1)] / 255 : 0;
+      const idle = .06 + .04 * Math.sin(t / 700 + i * .3);
+      const len = R * .15 + (v * .9 + idle) * R * 1.25;
+      g.strokeStyle = `rgba(227,194,127,${.25 + v * .75})`; g.lineWidth = 2; g.lineCap = 'round';
+      g.beginPath(); g.moveTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R); g.lineTo(cx + Math.cos(a) * (R + len), cy + Math.sin(a) * (R + len)); g.stroke();
+    }
+    g.strokeStyle = 'rgba(200,162,90,.35)'; g.lineWidth = 1; g.beginPath(); g.arc(cx, cy, R * .92, 0, Math.PI * 2); g.stroke();
+    requestAnimationFrame(viz);
+  }
+  if (!reduce) requestAnimationFrame(viz);
+})();
+</script>
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;background:rgba(17,17,17,.88);color:#fff;font:600 12px/1.3 system-ui,sans-serif;padding:8px 12px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.3);pointer-events:none">Demo concept for B.M. Sitarmaker · not the official website</div>
+</body>
+</html>
